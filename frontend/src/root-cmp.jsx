@@ -6,7 +6,7 @@ export function RootCmp() {
     <div className="main-layout base-layout">
       <main>
         <h1>
-          app is rendering correctly
+          The app is rendering correctly
         </h1>
       </main>
     </div>
