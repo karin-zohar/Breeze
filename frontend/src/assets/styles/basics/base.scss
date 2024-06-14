@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    // TODO: font-family;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-size: rem(18px);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.app-container {
+    // default theme: light:
+    color: theme-color(light, main-text-clr);
+    background-color: theme-color(light, main-bg-clr);
+    
+    &.theme-dark {
+        color: theme-color(dark, main-text-clr);
+        background-color: theme-color(dark, main-bg-clr);
+    }
+}
