@@ -48,6 +48,11 @@ li {
     margin-block: 0;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .app-container {
     // default theme: light:
     color: theme-color(light, main-text-clr);
@@ -57,4 +62,4 @@ li {
         color: theme-color(dark, main-text-clr);
         background-color: theme-color(dark, main-bg-clr);
     }
-}
+} 
