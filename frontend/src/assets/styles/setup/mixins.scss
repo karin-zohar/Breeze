@@ -1,0 +1,13 @@
+/* Breakpoint mixins */
+@mixin for-narrow-layout {
+    @media (max-width: $break-narrow) {
+      @content;
+    }
+  }
+  
+  @mixin for-normal-layout {
+    @media (min-width: $break-narrow) {
+      @content;
+    }
+  }
+  
