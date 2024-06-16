@@ -1,0 +1,59 @@
+.base-layout {
+    display: grid;
+    grid-template-rows: 1fr minmax(100vh, auto) 1fr;
+    grid-template-columns: $sidebar-width auto;
+
+    >*:not(.app-menu) {
+        @include for-narrow-layout {
+            grid-column: span 2;
+        }
+
+        @include for-normal-layout {
+            grid-column: 2;
+        }
+    }
+}
+
+//for layout purposes
+main {
+    background-color: yellow;
+    grid-row: 2;
+
+}
+
+.app-header {
+    background-color: pink;
+    height: $app-header-height;
+    position: sticky;
+    top: 0;
+}
+
+.app-footer {
+    background-color: lightblue;
+}
+
+.app-menu {
+    background-color: lightsalmon;
+
+    @include for-narrow-layout {
+        grid-column: span 2;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        top: $app-header-height;
+        z-index: 3000; 
+
+        // hide menu unless it is open
+        &:not(.open) {
+            display: none;
+        }
+    }
+
+    @include for-normal-layout {
+        grid-row: 1 / span 3;
+        position: fixed;
+        height: 100%;
+        width: $sidebar-width;
+    }
+}

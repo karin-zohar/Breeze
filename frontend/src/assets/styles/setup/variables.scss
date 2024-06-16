@@ -1,4 +1,4 @@
-// Color Pallette
+// ** COLOR PALETTE ** 
 $themes: (
     light: (
         main-bg-clr:#ffffff,
@@ -10,5 +10,14 @@ $themes: (
     )
 );
 
+// ** LAYOUT**
 // Layout Breakpoints
 $break-narrow: 800px; 
+
+// ** SIZES **
+
+// AppHeader:
+$app-header-height: 100px;
+
+// AppMenu: 
+$sidebar-width: 200px; // in normal layout

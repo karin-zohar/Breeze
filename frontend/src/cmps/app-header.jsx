@@ -8,7 +8,7 @@ export function AppHeader(props) {
     }
 
     return(
-        <header>
+        <header className="app-header">
              <button onClick={toggleTheme}>Toggle theme</button>
             app header
         </header>
