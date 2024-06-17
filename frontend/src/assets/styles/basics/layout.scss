@@ -42,7 +42,7 @@ main {
         height: 100%;
         overflow: hidden;
         top: $app-header-height;
-        z-index: 3000; 
+        // z-index: 3000;
 
         // hide menu unless it is open
         &:not(.open) {
@@ -51,7 +51,6 @@ main {
     }
 
     @include for-normal-layout {
-        grid-row: 1 / span 3;
         position: fixed;
         height: 100%;
         width: $sidebar-width;

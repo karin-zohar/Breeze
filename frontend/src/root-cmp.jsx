@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import { Routes, Route } from 'react-router'
+import { useTheme } from './contexts/ThemeContext'
 import { AppHeader } from './cmps/app-header'
 import { AppFooter } from './cmps/app-footer'
 import { AppMenu } from './cmps/app-menu'
@@ -7,12 +7,11 @@ import { HomePage } from './pages/home-page'
 
 
 export function RootCmp() {
-  const [isDarkTheme, setIsDarkTheme] = useState(false)
-
+  const { isDarkTheme } = useTheme()
 
   return (
     <div className={`app-container main-layout base-layout ${isDarkTheme ? 'theme-dark' : ''}`} >
-      <AppHeader isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
+      <AppHeader />
       <AppMenu />
       <main>
         <h1>

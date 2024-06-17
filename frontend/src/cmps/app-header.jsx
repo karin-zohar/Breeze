@@ -1,15 +1,10 @@
+import {ThemeToggle} from './theme-toggle'
 
-
-export function AppHeader(props) {
-    const { isDarkTheme, setIsDarkTheme } = props
-
-    const toggleTheme = () => {
-        setIsDarkTheme(prevTheme => (!prevTheme))
-    }
+export function AppHeader() {
 
     return(
         <header className="app-header">
-             <button onClick={toggleTheme}>Toggle theme</button>
+            <ThemeToggle />
             app header
         </header>
     )
