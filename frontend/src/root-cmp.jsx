@@ -9,8 +9,9 @@ import { HomePage } from './pages/home-page'
 
 export function RootCmp() {
   const { isDarkTheme } = useTheme()
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const screenWidth = window.innerWidth 
+  // The menu is initially closed in narrow (mobile) view and initially open in normal view: 
+  const [isMenuOpen, setIsMenuOpen] = useState(screenWidth >= 800)
 
   const toggleMenu = () => {
     setIsMenuOpen(prevIsMenuOpen => (!prevIsMenuOpen))
