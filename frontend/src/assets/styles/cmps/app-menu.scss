@@ -1,0 +1,19 @@
+.app-menu {
+    position: fixed;
+    height: 100%;
+
+    @include for-narrow-layout {
+        width: 100%;
+        overflow: hidden;
+        top: $app-header-height;
+
+        // hide menu unless it is open
+        &:not(.open) {
+            display: none;
+        }
+    }
+
+    @include for-normal-layout {
+        width: $sidebar-width;
+    }
+}
