@@ -1,0 +1,22 @@
+.app-header {
+
+    .menu-toggle {
+        @include for-normal-layout {
+            display: none;
+        }
+        height: 40px;
+        width: 40px;
+        background: none;
+        border: none;
+
+        &.open {
+            background-image: url("../../img/icons/menu/menu-close.svg");
+        }
+        
+        &.closed {
+            background-image: url("../../img/icons/menu/hamburger-menu-open.svg");
+
+        }
+
+    }
+}
