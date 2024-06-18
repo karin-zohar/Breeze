@@ -3,6 +3,12 @@
     height: $app-header-height;
     position: sticky;
     top: 0;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
 
     .menu-toggle {
         @include for-normal-layout {
