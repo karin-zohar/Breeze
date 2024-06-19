@@ -18,10 +18,3 @@ main {
     background-color: yellow;
     grid-row: 2;
 }
-
-.app-menu {
-    @include for-narrow-layout {
-        grid-column: span 2;
-    }
-   
-}
