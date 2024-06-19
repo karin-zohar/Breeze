@@ -1,13 +1,26 @@
 /* Breakpoint mixins */
 @mixin for-narrow-layout {
-    @media (max-width: $break-narrow) {
-      @content;
-    }
+  @media (max-width: $break-narrow) {
+    @content;
   }
-  
-  @mixin for-normal-layout {
-    @media (min-width: $break-narrow) {
-      @content;
-    }
+}
+
+@mixin for-normal-layout {
+  @media (min-width: $break-narrow) {
+    @content;
   }
-  
+}
+
+/* Color Theme */
+@mixin color-theme-basic {
+  // Default theme: theme-light:
+  color: theme-color(light, main-text-clr);
+  background-color: theme-color(light, main-bg-clr);
+
+  // theme-dark:
+  @at-root .theme-dark>#{&}, &.theme-dark {
+    color: theme-color(dark, main-text-clr);
+    background-color: theme-color(dark, main-bg-clr);
+  }
+
+}

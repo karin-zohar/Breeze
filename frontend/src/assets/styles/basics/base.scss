@@ -54,12 +54,5 @@ a {
 }
 
 .app-container {
-    // default theme: light:
-    color: theme-color(light, main-text-clr);
-    background-color: theme-color(light, main-bg-clr);
-    
-    &.theme-dark {
-        color: theme-color(dark, main-text-clr);
-        background-color: theme-color(dark, main-bg-clr);
-    }
+    @include color-theme-basic;
 } 

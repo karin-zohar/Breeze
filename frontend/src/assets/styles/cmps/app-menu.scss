@@ -1,7 +1,7 @@
 .app-menu {
-    background-color: lightsalmon; // temp
     position: fixed;
     height: 100%;
+    @include color-theme-basic;
     
     @include for-narrow-layout {
         width: 100%;
