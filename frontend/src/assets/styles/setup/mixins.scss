@@ -12,15 +12,10 @@
 }
 
 /* Color Theme */
-@mixin color-theme-basic {
-  // Default theme: theme-light:
-  color: theme-color(light, main-text-clr);
-  background-color: theme-color(light, main-bg-clr);
 
-  // theme-dark:
-  @at-root .theme-dark>#{&}, &.theme-dark {
-    color: theme-color(dark, main-text-clr);
-    background-color: theme-color(dark, main-bg-clr);
-  }
-
+@mixin color-theme-basic($theme) {
+  color: theme-color($theme, main-text-clr);
+  background-color: theme-color($theme, main-bg-clr);
 }
+
+
