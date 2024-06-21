@@ -1,8 +1,8 @@
 .app-menu {
     position: fixed;
     height: 100%;
-    // @include color-theme-basic;
-    
+    padding-inline: 18px;
+
     @include for-narrow-layout {
         width: 100%;
         overflow: hidden;
@@ -14,10 +14,28 @@
             display: block;
             height: 100%;
         }
+
+        .menu-header{
+            display: none;
+        }
     }
 
     @include for-normal-layout {
         width: $sidebar-width;
+        border-right: 30px solid;
+        border-image: linear-gradient(to right, $accent-clr, hsla(0, 0, 0, 0));
+        border-image-slice: 60 40;
+    }
+
+    .menu-header{
+        height: $app-header-height;
+        padding-block: 18px;
+    }
+
+    a {
+        &.active {
+            color: $accent-clr;
+        }
     }
 
 }
