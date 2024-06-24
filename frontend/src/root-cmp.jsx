@@ -1,15 +1,28 @@
 import { Routes, Route } from 'react-router'
-import { useState } from 'react'
+import { publicRoutes } from './constants/routes'
+import { useState, Suspense, lazy } from 'react'
 import { useTheme } from './contexts/ThemeContext'
 import { AppHeader } from './cmps/app-header'
 import { AppFooter } from './cmps/app-footer'
 import { AppMenu } from './cmps/app-menu'
-import { HomePage } from './pages/home-page'
+import { Loader } from './cmps/loader'
 
+
+// Dynamic routing with lazy loading: 
+const componentsMap = {
+  HomePage: lazy(() => import('./pages/home-page.jsx') ),
+  Goals: lazy(() => import('./pages/goals.jsx') )
+}
+
+const routeComponents = publicRoutes.map(({ path, component }, key) => {
+  const Component = componentsMap[component]
+  return  <Route exact path={path} element={<Component />} key={key} />
+})
 
 export function RootCmp() {
   const { isDarkTheme } = useTheme()
-  const screenWidth = window.innerWidth 
+
+  const screenWidth = window.innerWidth
   const layoutBreakingPoint = 800
   // Initialize menu state based on screen width: open if screen is wide, closed if narrow (mobile view).
   const [isMenuOpen, setIsMenuOpen] = useState(screenWidth >= layoutBreakingPoint)
@@ -17,6 +30,7 @@ export function RootCmp() {
   const toggleMenu = () => {
     setIsMenuOpen(prevIsMenuOpen => (!prevIsMenuOpen))
   }
+
 
 
   return (
@@ -30,12 +44,15 @@ export function RootCmp() {
         toggleMenu={toggleMenu}
       />
       <main>
-        <h1>
-          The app is rendering correctly
-        </h1>
-        <Routes>
-          <Route element={<HomePage />} path="/" />
-        </Routes>
+        <Suspense
+          fallback={<Loader />}
+        >
+
+          <Routes>
+            {/* <Route element={<HomePage />} path="/" /> */}
+            {routeComponents}
+          </Routes>
+        </Suspense>
       </main>
       <AppFooter />
     </div>
