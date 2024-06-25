@@ -9,7 +9,7 @@ export function AppMenu({ isMenuOpen, toggleMenu }) {
             <div className="menu-header">
                 <Logo />
             </div>
-            <AppNav />
+            <AppNav isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
         </div>
     )
 }

@@ -1,6 +1,6 @@
+import { useState, useEffect, Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router'
 import { publicRoutes } from './constants/routes'
-import { useState, Suspense, lazy } from 'react'
 import { useTheme } from './contexts/ThemeContext'
 import { AppHeader } from './cmps/app-header'
 import { AppFooter } from './cmps/app-footer'
@@ -10,27 +10,40 @@ import { Loader } from './cmps/loader'
 
 // Dynamic routing with lazy loading: 
 const componentsMap = {
-  HomePage: lazy(() => import('./pages/home-page.jsx') ),
-  Goals: lazy(() => import('./pages/goals.jsx') )
+  HomePage: lazy(() => import('./pages/home-page.jsx')),
+  Goals: lazy(() => import('./pages/goals.jsx'))
 }
 
 const routeComponents = publicRoutes.map(({ path, component }, key) => {
   const Component = componentsMap[component]
-  return  <Route exact path={path} element={<Component />} key={key} />
+  return <Route exact path={path} element={<Component />} key={key} />
 })
 
 export function RootCmp() {
   const { isDarkTheme } = useTheme()
-
-  const screenWidth = window.innerWidth
   const layoutBreakingPoint = 800
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < layoutBreakingPoint)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < layoutBreakingPoint)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   // Initialize menu state based on screen width: open if screen is wide, closed if narrow (mobile view).
-  const [isMenuOpen, setIsMenuOpen] = useState(screenWidth >= layoutBreakingPoint)
+  const [isMenuOpen, setIsMenuOpen] = useState(window.innerWidth >= layoutBreakingPoint)
 
-  const toggleMenu = () => {
-    setIsMenuOpen(prevIsMenuOpen => (!prevIsMenuOpen))
+  function toggleMenu() {
+    if (isMobileView) {
+      setIsMenuOpen(prevIsMenuOpen => (!prevIsMenuOpen))
+    } else {
+      setIsMenuOpen(true)
+    }
   }
-
 
 
   return (
@@ -49,7 +62,6 @@ export function RootCmp() {
         >
 
           <Routes>
-            {/* <Route element={<HomePage />} path="/" /> */}
             {routeComponents}
           </Routes>
         </Suspense>
