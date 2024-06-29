@@ -1,5 +1,6 @@
 import { useState, useEffect, Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router'
+import { utilService } from './services/util.service.js'
 import { publicRoutes } from './constants/routes'
 import { useTheme } from './contexts/ThemeContext'
 import { AppHeader } from './cmps/app-header'
@@ -28,9 +29,10 @@ export function RootCmp() {
     const handleResize = () => {
       setIsMobileView(window.innerWidth < layoutBreakingPoint)
     }
-    window.addEventListener('resize', handleResize)
+    const debouncedHandleResize = utilService.debounce(handleResize, 300)
+    window.addEventListener('resize', debouncedHandleResize)
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', debouncedHandleResize)
     }
   }, [])
 
