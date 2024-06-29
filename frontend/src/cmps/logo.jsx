@@ -1,5 +1,12 @@
+import { NavLink } from "react-router-dom"
+
 export function Logo() {
     return (
-        <a href="/" className="logo">Breeze</a>
+        <NavLink
+            to="/"
+            className="logo"
+        >
+            Breeze
+        </NavLink>
     )
 }
