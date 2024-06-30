@@ -12,7 +12,7 @@ import { Loader } from './cmps/loader'
 // Dynamic routing with lazy loading: 
 const componentsMap = {
   HomePage: lazy(() => import('./pages/home-page.jsx')),
-  Goals: lazy(() => import('./pages/goals.jsx'))
+  ProjectIndex: lazy(() => import('./pages/project-index.jsx')),
 }
 
 const routeComponents = publicRoutes.map(({ path, component }, key) => {
