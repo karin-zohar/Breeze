@@ -2,9 +2,16 @@ import { ThemeToggle } from './theme-toggle'
 import { Logo } from "./logo"
 
 export function AppHeader({ isMenuOpen, toggleMenu }) {
+    
+    const closeMenu = () => {
+        if (isMenuOpen) toggleMenu()
+    }
+
     return (
         <header className="app-header">
-            <Logo />
+            <section className="logo-container" onClick={closeMenu}>
+                <Logo />
+            </section>
             <section className="toggles">
                 <ThemeToggle />
                 <button
