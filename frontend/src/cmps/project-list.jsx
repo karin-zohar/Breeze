@@ -6,7 +6,7 @@ export function ProjectList({ projects }) {
             {projects.map(project => {
                 return (
                     <li>
-                        {project}
+                        <ProjectPreview project={project} />
                     </li>
                 )
             })}
