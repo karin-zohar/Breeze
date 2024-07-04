@@ -7,14 +7,15 @@ import { Provider } from 'react-redux'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import { RootCmp } from './root-cmp'
 import './assets/styles/main.scss'
-import projectsReducer from './store/projects/project.reducer'
+// import projectsReducer from './store/projects/project.reducer'
+import store from './store/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-const store = configureStore({
-  reducer: {
-    projects: projectsReducer
-  }
-})
+// const store = configureStore({
+//   reducer: {
+//     projects: projectsReducer
+//   }
+// })
 
 root.render(
   <Provider store={store}>
