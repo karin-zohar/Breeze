@@ -3,13 +3,14 @@ import { projectService } from '../../services/project.service'
 import { demoProjects } from '../../constants/demo-data'
 
 const projectsAdapter = createEntityAdapter({
-    selectId: (project) => project.projectId,
+    selectId: (project) => project._id,
     // Sort "all IDs" array based on the project's lastUpdated field
     sortComparer: (a, b) => b.lastUpdated.localeCompare(a.lastUpdated),
 })
 
 const initialState = projectsAdapter.getInitialState({
-    loading: 'idle'
+    loading: 'idle',
+    // error: null
 },
     demoProjects
 )
@@ -48,6 +49,18 @@ export const projectSlice = createSlice({
         addProject: projectsAdapter.addOne,
         removeProject: projectsAdapter.removeOne,
         updateProject: projectsAdapter.updateOne
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(loadProjects.fulfilled, (state, action) => {
+                projectsAdapter.setAll(state, action.payload)
+            })
+            .addCase(addProject.fulfilled, (state, action) => {
+                projectsAdapter.addOne(state, action.payload)
+            })
+            .addCase(removeProject.fulfilled, (state, action) => {
+                projectsAdapter.removeOne(state, action.payload)
+            })
     }
 })
 
@@ -55,5 +68,5 @@ export default projectSlice.reducer
 
 export const {
     selectAll: selectAllProjects,
-    selectById: selectBookById,
+    selectById: selectProjectById,
 } = projectsAdapter.getSelectors((state) => state.projects)

@@ -31,7 +31,7 @@ function getById(projectId) {
         return storageService.get(STORAGE_KEY, projectId)
     }
     catch (error) {
-        console.error(`error getting project ${projectId}:`)
+        console.error(`error getting project ${projectId}: ${error}`)
     }
 }
 
@@ -40,7 +40,7 @@ async function remove(projectId) {
         await storageService.remove(STORAGE_KEY, projectId)
     }
     catch (error) {
-        console.error(`error removing project ${projectId}:`)
+        console.error(`error removing project ${projectId}:, ${error}`)
     }
 }
 
@@ -60,7 +60,7 @@ async function save(project) {
 
 function getEmptyProject() {
     return {
-        projectId: '',
+        _id: '',
         dateCreated: new Date().toISOString(),
         lastUpdated: new Date().toISOString(),
         isCompleted: false,
@@ -73,10 +73,17 @@ function getEmptyProject() {
         linkedDoc: null
     }
 }
+
 // Private functions:
+// function _createProject(title, description = '', imgUrls = [], wordcount = 0, targetWordCount, linkedDoc = null) {
+//     const project = getEmptyProject()
+//     project.id = utilService.makeId()
+// }
+
 _createProjects()
 function _createProjects() {
-    let projects = utilService.loadFromStorage(STORAGE_KEY) || demoProjects
+    let projects = utilService.loadFromStorage(STORAGE_KEY) 
+    if (!projects || !projects.length) projects = demoProjects
     utilService.saveToStorage(STORAGE_KEY, projects)
 
 }

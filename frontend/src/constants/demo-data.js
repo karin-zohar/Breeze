@@ -1,7 +1,7 @@
 // Initial data for demo projects to help new users get started with the app.
 
 export const demoProjects = [{
-    projectId: '000',
+    _id: '000',
     dateCreated: new Date().toISOString(),
     lastUpdated: new Date().toISOString(),
     isCompleted: false,
