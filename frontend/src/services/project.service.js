@@ -46,7 +46,6 @@ async function remove(projectId) {
 
 
 async function save(project) {
-    console.log('project: ', project)
     let savedProject
     // Edit an existing project
     if (project._id) {
@@ -60,12 +59,11 @@ async function save(project) {
 
 function getEmptyProject() {
     return {
-        _id: '',
         dateCreated: new Date().toISOString(),
         lastUpdated: new Date().toISOString(),
         isCompleted: false,
-        title: '',
-        description: '',
+        title: 'New Project',
+        description: 'Enter a description.',
         imgUrls: [],
         wordcount: 0,
         targetWordCount: 0,

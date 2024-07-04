@@ -11,19 +11,25 @@ export default function ProjectIndex() {
         dispatch(removeProject(projectId))
     }
 
+    const handleAddProject = (projectId) => {
+        let newProject = projectService.getEmptyProject()
+        dispatch(addProject(newProject)) // temporary
+    }
+
     const projectActions = {
-        remove: handleRemoveProject
+        remove: handleRemoveProject,
+        add: handleAddProject
     }
 
     return (
         <section className="project-index">
             <h2>project index</h2>
-            {/* <button
+            <button
                 className="add-project"
-                onClick={dispatchProjectActions.addProject}
+                onClick={projectActions.add}
             >
                 Add project
-            </button> */}
+            </button>
             <ProjectList projects={projects} projectActions={projectActions}  />
         </section>
     )
