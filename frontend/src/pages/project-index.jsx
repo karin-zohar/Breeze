@@ -25,7 +25,6 @@ export default function ProjectIndex() {
         add: handleAddProject
     }
     
-
     return (
         <section className="project-index">
             <h2>project index</h2>

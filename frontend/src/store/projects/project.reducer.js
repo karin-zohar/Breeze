@@ -40,7 +40,6 @@ export const removeProject = createAsyncThunk(
     }
 )
 
-
 export const projectSlice = createSlice({
     name: "projects",
     initialState: initialState,

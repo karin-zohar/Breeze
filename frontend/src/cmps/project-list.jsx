@@ -8,11 +8,10 @@ export function ProjectList({ projects, projectActions }) {
                     <li key={project._id}>
                         <ProjectPreview project={project} />
                         <div className="project-actions">
-                        <button className="remove-project" onClick={() => projectActions.remove(project._id)}>
-                            remove
-                        </button>
+                            <button className="remove-project" onClick={() => projectActions.remove(project._id)}>
+                                remove
+                            </button>
                         </div>
-                        
                     </li>
                 )
             })}

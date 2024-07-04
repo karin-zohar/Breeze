@@ -44,7 +44,6 @@ async function remove(projectId) {
     }
 }
 
-
 async function save(project) {
     let savedProject
     // Edit an existing project
@@ -71,12 +70,6 @@ function getEmptyProject() {
         linkedDoc: null
     }
 }
-
-// Private functions:
-// function _createProject(title, description = '', imgUrls = [], wordcount = 0, targetWordCount, linkedDoc = null) {
-//     const project = getEmptyProject()
-//     project.id = utilService.makeId()
-// }
 
 _createProjects()
 function _createProjects() {

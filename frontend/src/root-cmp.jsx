@@ -47,7 +47,6 @@ export function RootCmp() {
     }
   }
 
-
   return (
     <div className={`app-container main-layout base-layout ${isDarkTheme ? 'theme-dark' : ''}`} >
       <AppHeader
