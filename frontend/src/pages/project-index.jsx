@@ -39,3 +39,4 @@ export default function ProjectIndex() {
     )
 }
 
+// TODO: add pagination
