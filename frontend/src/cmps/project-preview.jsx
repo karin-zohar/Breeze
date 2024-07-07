@@ -1,7 +1,9 @@
 import { projectService } from "../services/project.service"
 
-export function ProjectPreview({ project }) {
+export function ProjectPreview({ project, projectActions }) {
     const { title, description } = project
+    const {remove, add} = projectActions
+
     return (
         <article className="project-preview">
             <h2>{title}</h2>

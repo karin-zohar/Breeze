@@ -25,6 +25,8 @@ export default function ProjectIndex() {
         add: handleAddProject
     }
     
+    //TODO: animation on remove project
+
     return (
         <section className="project-index">
             <h2>project index</h2>

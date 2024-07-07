@@ -6,3 +6,5 @@ export function ThemeToggle() {
         <button onClick={toggleTheme}>Toggle Theme</button>
     )
 }
+
+// TODO: style animated toggle
