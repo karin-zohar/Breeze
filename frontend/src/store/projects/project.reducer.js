@@ -12,7 +12,7 @@ const initialState = projectsAdapter.getInitialState({
     loading: 'idle',
     // error: null
 },
-    demoProjects
+    []
 )
 
 // Asynchronous CRUD operations

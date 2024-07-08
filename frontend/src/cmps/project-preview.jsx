@@ -1,8 +1,10 @@
+import { useState } from "react"
 import { projectService } from "../services/project.service"
 
 export function ProjectPreview({ project, projectActions }) {
 
-    const { title, description } = project
+    const [currProject, setCurrProject] = useState(project)
+    const { title, description } = currProject
     const { remove, add, update } = projectActions
 
 
@@ -12,8 +14,9 @@ export function ProjectPreview({ project, projectActions }) {
         // const newValue = event.currentTarget.textContent
         const newValue = "new value" //temp
         updatedField[projectField] = newValue
-        const updatedProject = {...project, ...updatedField}
+        const updatedProject = {...currProject, ...updatedField}
         update(updatedProject)
+        setCurrProject(updatedProject)
     }
     return (
         <article className="project-preview">
