@@ -32,6 +32,14 @@ export const addProject = createAsyncThunk(
     }
 )
 
+export const updateProject = createAsyncThunk(
+    'projects/updateProject',
+    async (savedProject) => {
+        const response = await projectService.save(savedProject)
+        return response
+    }
+)
+
 export const removeProject = createAsyncThunk(
     'projects/removeProject',
     async (projectId) => {
@@ -39,6 +47,7 @@ export const removeProject = createAsyncThunk(
         return projectId
     }
 )
+
 
 export const projectSlice = createSlice({
     name: "projects",
@@ -56,6 +65,9 @@ export const projectSlice = createSlice({
             })
             .addCase(addProject.fulfilled, (state, action) => {
                 projectsAdapter.addOne(state, action.payload)
+            })
+            .addCase(updateProject.fulfilled, (state, action) => {
+                projectsAdapter.updateOne(state, action.payload)
             })
             .addCase(removeProject.fulfilled, (state, action) => {
                 projectsAdapter.removeOne(state, action.payload)

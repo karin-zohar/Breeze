@@ -71,10 +71,10 @@ function getEmptyProject() {
     }
 }
 
-_createProjects()
-function _createProjects() {
-    let projects = utilService.loadFromStorage(STORAGE_KEY) 
-    if (!projects || !projects.length) projects = demoProjects
-    utilService.saveToStorage(STORAGE_KEY, projects)
+// _createProjects()
+// function _createProjects() {
+//     let projects = utilService.loadFromStorage(STORAGE_KEY) 
+//     if (!projects || !projects.length) projects = demoProjects
+//     utilService.saveToStorage(STORAGE_KEY, projects)
 
-}
+// }

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { ProjectList } from '../cmps/project-list.jsx'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectAllProjects,loadProjects, addProject, removeProject } from '../store/projects/project.reducer.js'
+import { selectAllProjects,loadProjects, addProject, removeProject, updateProject } from '../store/projects/project.reducer.js'
 import { projectService } from '../services/project.service.js'
 
 export default function ProjectIndex() {
@@ -11,18 +11,24 @@ export default function ProjectIndex() {
     useEffect(() => {
         dispatch(loadProjects())
     },[])
+   
     const handleRemoveProject = (projectId) => {
         dispatch(removeProject(projectId))
     }
     
     const handleAddProject = (projectId) => {
         let newProject = projectService.getEmptyProject()
-        dispatch(addProject(newProject)) // temporary
+        dispatch(addProject(newProject)) 
+    }
+
+    const handleUpdateProject =  (updatedProject) => {
+        dispatch(updateProject(updatedProject))
     }
     
     const projectActions = {
         remove: handleRemoveProject,
-        add: handleAddProject
+        add: handleAddProject,
+        update: handleUpdateProject
     }
     
     //TODO: animation on remove project
