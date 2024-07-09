@@ -1,7 +1,7 @@
 import { ProjectPreview } from './project-preview.jsx'
 
 export function ProjectList({ projects, projectActions }) {
-    const {remove, add, update} = projectActions 
+    const { remove, add, update } = projectActions
 
     return (
         <ul className="project-list">
