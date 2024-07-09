@@ -35,8 +35,6 @@ export function ProjectPreview({ project, projectActions }) {
                     aria-label="Change project title"
                     type="text"
                     data-field="title"
-                    spellCheck="false"
-                    autoComplete="off"
                 >
                 </input>
             </div>
@@ -54,8 +52,6 @@ export function ProjectPreview({ project, projectActions }) {
                     aria-label="Change project title"
                     type="text"
                     data-field="description"
-                    spellCheck="false"
-                    autoComplete="off"
                 >
                 </input>
             </div>
