@@ -11,6 +11,7 @@ export function ProjectEditWidget({currProject, setCurrProject, update, field}) 
         const updatedProject = { ...currProject, ...updatedField }
         update(updatedProject)
         setCurrProject(updatedProject)
+        setIsActive(false)
     }
 
     const getUpdatedField = (event) => {
@@ -20,8 +21,7 @@ export function ProjectEditWidget({currProject, setCurrProject, update, field}) 
         return updatedField
     }
 
-    const onWidget = (event) => {
-        const widget = event.currentTarget
+    const handleFocus = () => {
         setIsActive(true)
     }
 
@@ -30,15 +30,14 @@ export function ProjectEditWidget({currProject, setCurrProject, update, field}) 
         <div 
         className={widgetClasses.join(' ')} 
         data-field={field}
-        onClick={onWidget}
         >
         <span>{fieldValue}</span>
 
         <input
-            // onInput={handleEditProject}
             defaultValue={fieldValue}
             aria-label="Change project title"
             type="text"
+            onFocus={handleFocus}
             onBlur={handleEditProject}
         >
         </input>

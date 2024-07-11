@@ -1,4 +1,8 @@
 .widget {
+    span {
+        visibility: visible;
+        z-index: 3;
+    }
     padding: 1em;
     &:hover {
         border: 1px solid gray;
@@ -7,5 +11,8 @@
 
     &.input-active {
         text-decoration: underline dashed;
+        span {
+            visibility: hidden;
+        }
     }
 }
