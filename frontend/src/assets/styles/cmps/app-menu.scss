@@ -1,6 +1,7 @@
 .app-menu {
     position: fixed;
     height: 100%;
+    z-index: 100;
     padding-inline: 18px;
 
     @include for-narrow-layout {

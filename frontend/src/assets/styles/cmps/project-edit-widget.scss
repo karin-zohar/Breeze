@@ -5,14 +5,16 @@
     margin-block-end: 1em;
     position: relative;
     display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
+    // grid-template-rows: 1fr;
+    // grid-template-columns: 1fr;
+    grid-template-areas: "field";
     
     & >* {
         width: 100%;
         align-self: flex-start;
-       grid-row: 1;
-       grid-column: 1;
+        grid-area: field;
+    //    grid-row: 1;
+    //    grid-column: 1;
     }
 
     span {

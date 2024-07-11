@@ -1,6 +1,7 @@
 .app-header {
     height: $app-header-height;
     position: sticky;
+    z-index: 90;
     top: 0;
     padding: 1em;
     display: flex;
