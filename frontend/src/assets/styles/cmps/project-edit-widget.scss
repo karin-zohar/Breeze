@@ -1,67 +1,68 @@
 .widget {
-    background-color: lightgreen;
-    border: 1px solid yellow;
     width: 100%;
     margin-block-end: 1em;
     position: relative;
     display: grid;
-    // grid-template-rows: 1fr;
-    // grid-template-columns: 1fr;
     grid-template-areas: "field";
-    
-    & >* {
+
+    &:hover {
+        .label span {
+            border: 1px solid gray;
+        }
+    }
+
+    &>* {
         width: 100%;
         align-self: flex-start;
         grid-area: field;
-    //    grid-row: 1;
-    //    grid-column: 1;
     }
 
-    span {
+    .label {
         display: block;
-        background-color: lightsalmon;
-        border: 1px solid red;
         visibility: visible;
         z-index: 3;
+        
+        span {
+            border: 1px solid transparent;
+            border-radius: 4px;
+            padding: 1px 6px;
+        }
     }
 
     textarea {
+        visibility: hidden;
         @include reset-textarea;
-        background-color: lightblue;
-        border: 1px solid blue;
 
         &:focus {
             border: 1px solid $accent-clr;
-            border-radius: 2em;
         }
     }
 
-
-    &:hover {
-        border: 1px solid gray;
-        border-radius: 2em;
+    &.input-active .label {
+        visibility: hidden;
     }
 
-    &.input-active {
-        span {
-            visibility: hidden;
-        }
-
+    &.input-active textarea {
+        background-color: lightblue;
+        visibility: visible;
     }
 
     &[data-field="description"] {
-        span {
-            height: 160px;
-            white-space: pre;
-        }
 
+        .label,
         textarea {
             height: 160px;
         }
+
+        .label {
+            white-space: pre;
+        }
     }
-    
-    &[data-field="title"]  {
-        span,textarea {
+
+    &[data-field="title"] {
+
+        .label,
+        textarea {
             height: 60px;
         }
     }
