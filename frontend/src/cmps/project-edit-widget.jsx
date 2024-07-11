@@ -33,14 +33,15 @@ export function ProjectEditWidget({currProject, setCurrProject, update, field}) 
         >
         <span>{fieldValue}</span>
 
-        <input
+        <textarea
             defaultValue={fieldValue}
             aria-label="Change project title"
             type="text"
             onFocus={handleFocus}
             onBlur={handleEditProject}
+            autoFocus={true}
         >
-        </input>
+        </textarea>
     </div>
     )
 }
