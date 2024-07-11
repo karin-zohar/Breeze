@@ -1,0 +1,11 @@
+.widget {
+    padding: 1em;
+    &:hover {
+        border: 1px solid gray;
+        border-radius: 2em;
+    }
+
+    &.input-active {
+        text-decoration: underline dashed;
+    }
+}

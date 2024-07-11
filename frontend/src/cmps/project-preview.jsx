@@ -1,60 +1,79 @@
 import { useState } from "react"
 import { projectService } from "../services/project.service"
+import { ProjectEditWidget } from "./project-edit-widget"
 
 export function ProjectPreview({ project, projectActions }) {
 
     const [currProject, setCurrProject] = useState(project)
     const { title, description } = currProject
     const { remove, add, update } = projectActions
+    const projectFields = ["title", "description"]
 
 
-    const handleEditProject = (event) => {
-        const updatedField = {}
-        const projectField = event.currentTarget.dataset.field
-        const newValue = event.currentTarget.value
-        updatedField[projectField] = newValue
-        const updatedProject = { ...currProject, ...updatedField }
-        update(updatedProject)
-        setCurrProject(updatedProject)
-    }
+    // const handleEditProject = (widget) => {
+    //     const updatedField = getUpdatedField(widget)
+    //     const updatedProject = { ...currProject, ...updatedField }
+    //     update(updatedProject)
+    //     setCurrProject(updatedProject)
+    // }
+
+    // const getUpdatedField = (widget) => {
+    //     const updatedField = {}
+    //     const projectField = widget.dataset.field
+    //     const newValue = widget.value
+    //     updatedField[projectField] = newValue
+    //     return updatedField
+    // }
+
+
+
+
 
     return (
         <article className="project-preview">
-            <div className="project-title-widget">
+            {/* <div className={`widget project-title-widget`} data-field="title" onClick={onWidget}>
                 <h2
                     className="project-title-label"
-                    data-field="title"
                 >
                     {title}
                 </h2>
 
                 <input
                     className="project-title-input"
-                    onInput={handleEditProject}
+                    // onInput={handleEditProject}
                     defaultValue={title}
                     aria-label="Change project title"
                     type="text"
-                    data-field="title"
                 >
                 </input>
             </div>
-            <div className="project-description-widget">
-                <p
-                    data-field="description"
-                >
-                    {description}
-                </p>
-          
+            <div className="widget project-description-widget" data-field="description" onClick={onWidget}>
+                <p>{description}</p>
+
                 <input
                     className="project-title-input"
-                    onInput={handleEditProject}
+                    // onInput={handleEditProject}
                     defaultValue={description}
                     aria-label="Change project title"
                     type="text"
-                    data-field="description"
                 >
                 </input>
-            </div>
+            </div> */}
+            <ul>
+                {projectFields.map((projectField, idx) => {
+                    return (
+                        <li key={idx}>
+                            <ProjectEditWidget
+                                currProject={currProject}
+                                setCurrProject={setCurrProject}
+                                update={update}
+                                field={projectField}
+                            />
+                        </li>
+                    )
+                })}
+
+            </ul>
         </article>
     )
 }
