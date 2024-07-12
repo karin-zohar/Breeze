@@ -22,7 +22,7 @@
 /* Reset */
 
 @mixin reset-textarea {
-  border: none;
+  border: 2px solid transparent;
   overflow: auto;
   outline: none;
   -webkit-box-shadow: none;

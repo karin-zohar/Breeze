@@ -13,7 +13,6 @@
 
     &>* {
         width: 100%;
-        align-self: flex-start;
         grid-area: field;
     }
 
@@ -34,7 +33,8 @@
         @include reset-textarea;
 
         &:focus {
-            border: 1px solid $accent-clr;
+            border: 2px solid $accent-clr;
+            border-radius: 4px;
         }
     }
 
@@ -43,7 +43,6 @@
     }
 
     &.input-active textarea {
-        background-color: lightblue;
         visibility: visible;
     }
 
@@ -51,7 +50,7 @@
 
         .label,
         textarea {
-            height: 160px;
+            height: 8em;
         }
 
         .label {
@@ -63,7 +62,7 @@
 
         .label,
         textarea {
-            height: 60px;
+            height: 2em;
         }
     }
 }
