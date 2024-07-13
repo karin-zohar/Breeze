@@ -2,7 +2,8 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     debounce,
-    makeId
+    makeId,
+    getPercentage
 }
 
 // Local Storage
@@ -37,4 +38,13 @@ function makeId(length = 6) {
     }
 
     return txt
+}
+
+// MATH
+
+function getPercentage(part, total) {
+    if (total === 0) {
+        return 0
+      }
+      return (part / total) * 100
 }

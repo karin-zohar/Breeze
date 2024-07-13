@@ -2,9 +2,20 @@
     display: grid;
     width: 100%;
 
-    .progress-text {
-        &.completed {
-            color: green; //temp
+    .project-progress {
+        .progress-text {
+            &.completed {
+                color: green; //temp
+            }
+        }
+
+        .progress-bar {
+            &::part(base) {
+                max-width: 500px;
+            }
+            &::part(indicator) {
+                background-color: $accent-clr;
+            }
         }
     }
 }
