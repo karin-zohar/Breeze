@@ -1,4 +1,10 @@
 .project-preview {
     display: grid;
     width: 100%;
+
+    .progress-text {
+        &.completed {
+            color: green; //temp
+        }
+    }
 }

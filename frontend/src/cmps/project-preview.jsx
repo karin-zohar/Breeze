@@ -7,7 +7,8 @@ export function ProjectPreview({ project, projectActions }) {
     const { title, description, wordcount, targetWordcount } = currProject
     const { remove, add, update } = projectActions
     const projectFields = ["title", "description","targetWordcount"]
-
+    const isCompleted  = (wordcount >= targetWordcount) 
+   
     return (
         <article className="project-preview">
             <ul>
@@ -27,7 +28,7 @@ export function ProjectPreview({ project, projectActions }) {
             </ul>
 
             <div className="project-progress">
-                <p className="project-text">
+                <p className={`progress-text ${isCompleted ? 'completed' : ''}`}>
                     <span className="wordcount">{wordcount}</span> / <span className="target">{targetWordcount}</span> words
                 </p>
             </div>
