@@ -60,7 +60,6 @@ function getEmptyProject() {
     return {
         dateCreated: new Date().toISOString(),
         lastUpdated: new Date().toISOString(),
-        isCompleted: false,
         title: 'New Project',
         description: 'Enter a description.',
         imgUrls: [],
@@ -70,11 +69,3 @@ function getEmptyProject() {
         linkedDoc: null
     }
 }
-
-// _createProjects()
-// function _createProjects() {
-//     let projects = utilService.loadFromStorage(STORAGE_KEY) 
-//     if (!projects || !projects.length) projects = demoProjects
-//     utilService.saveToStorage(STORAGE_KEY, projects)
-
-// }

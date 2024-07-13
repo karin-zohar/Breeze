@@ -44,8 +44,9 @@ export function ProjectEditWidget({ currProject, setCurrProject, update, field }
             className={widgetClasses.join(' ')}
             data-field={field}
             onDoubleClick={enterEditMode}
+            
         >
-            <div className="label">
+            <div className="label" title={field}>
                 <span>{fieldValue}</span>
             </div>
 
