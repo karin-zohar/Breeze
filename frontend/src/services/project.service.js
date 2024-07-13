@@ -65,7 +65,7 @@ function getEmptyProject() {
         description: 'Enter a description.',
         imgUrls: [],
         wordcount: 0,
-        targetWordCount: 0,
+        targetWordcount: 5000,
         timeSpent: null,
         linkedDoc: null
     }

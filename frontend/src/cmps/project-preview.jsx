@@ -1,33 +1,12 @@
 import { useState } from "react"
-import { projectService } from "../services/project.service"
 import { ProjectEditWidget } from "./project-edit-widget"
 
 export function ProjectPreview({ project, projectActions }) {
 
     const [currProject, setCurrProject] = useState(project)
-    const { title, description } = currProject
+    const { title, description, wordcount, targetWordcount } = currProject
     const { remove, add, update } = projectActions
-    const projectFields = ["title", "description"]
-
-
-    // const handleEditProject = (widget) => {
-    //     const updatedField = getUpdatedField(widget)
-    //     const updatedProject = { ...currProject, ...updatedField }
-    //     update(updatedProject)
-    //     setCurrProject(updatedProject)
-    // }
-
-    // const getUpdatedField = (widget) => {
-    //     const updatedField = {}
-    //     const projectField = widget.dataset.field
-    //     const newValue = widget.value
-    //     updatedField[projectField] = newValue
-    //     return updatedField
-    // }
-
-
-
-
+    const projectFields = ["title", "description","targetWordcount"]
 
     return (
         <article className="project-preview">
@@ -46,9 +25,12 @@ export function ProjectPreview({ project, projectActions }) {
                 })}
 
             </ul>
+
+            <div className="project-progress">
+                <p className="project-text">
+                    <span className="wordcount">{wordcount}</span> / <span className="target">{targetWordcount}</span> words
+                </p>
+            </div>
         </article>
     )
 }
-
-//TODO: add event listener to dblclick -> on the title and description
-//TOOD: save changes to db. 

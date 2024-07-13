@@ -13,14 +13,14 @@
 
     &>* {
         width: 100%;
-        grid-area: field;
+        grid-area: field;    
     }
 
     .label {
         display: block;
         visibility: visible;
         z-index: 3;
-        
+
         span {
             border: 1px solid transparent;
             border-radius: 4px;
