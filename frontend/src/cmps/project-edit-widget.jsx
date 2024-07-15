@@ -1,4 +1,5 @@
 import { useState, useRef } from "react"
+import SlTooltip from '@shoelace-style/shoelace/dist/react/tooltip'
 
 export function ProjectEditWidget({ currProject, setCurrProject, update, field }) {
     const [isActive, setIsActive] = useState(false)
@@ -44,11 +45,13 @@ export function ProjectEditWidget({ currProject, setCurrProject, update, field }
             className={widgetClasses.join(' ')}
             data-field={field}
             onDoubleClick={enterEditMode}
-            
+
         >
-            <div className="label" title={field}>
-                <span>{fieldValue}</span>
-            </div>
+            <SlTooltip content={`Edit ${field}`}>
+                <div className="label" title={field}>
+                    <span>{fieldValue}</span>
+                </div>
+            </SlTooltip>
 
             <textarea
                 defaultValue={fieldValue}
