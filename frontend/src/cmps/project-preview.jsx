@@ -9,7 +9,7 @@ export function ProjectPreview({ project, projectActions }) {
     const [currProject, setCurrProject] = useState(project)
     const { title, description, wordcount, targetWordcount } = currProject
     const { remove, add, update } = projectActions
-    const projectFields = ["title", "description", "targetWordcount"]
+    const projectFields = ["title", "description"]
     const isCompleted = (wordcount >= targetWordcount)
     const wordcountPercentage = utilService.getPercentage(wordcount, targetWordcount)
 
