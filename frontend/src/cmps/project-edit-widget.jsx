@@ -1,5 +1,6 @@
 import { useState, useRef } from "react"
 import SlTooltip from '@shoelace-style/shoelace/dist/react/tooltip'
+import { utilService } from "../services/util.service"
 
 export function ProjectEditWidget({ currProject, setCurrProject, update, field }) {
     const [isActive, setIsActive] = useState(false)
@@ -26,15 +27,17 @@ export function ProjectEditWidget({ currProject, setCurrProject, update, field }
         setIsActive(true)
     }
 
+    const exitEditMode = () => {
+        setIsActive(false)
+        inputRef.current.blur()
+    }
+
     const enterEditMode = () => {
         if (inputRef.current) {
             setIsActive(true)
             inputRef.current.focus()
             window.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter') {
-                    setIsActive(false)
-                    inputRef.current.blur()
-                }
+                utilService.handleKeydown(event, 'Enter', exitEditMode)
             })
         }
     }

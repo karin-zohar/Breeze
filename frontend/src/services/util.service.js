@@ -3,7 +3,8 @@ export const utilService = {
     loadFromStorage,
     debounce,
     makeId,
-    getPercentage
+    getPercentage,
+    handleKeydown
 }
 
 // Local Storage
@@ -45,6 +46,15 @@ function makeId(length = 6) {
 function getPercentage(part, total) {
     if (total === 0) {
         return 0
-      }
-      return (part / total) * 100
+    }
+    return (part / total) * 100
 }
+
+// Event handling
+
+function handleKeydown(event, keyType, callBack) {
+    if (event.key === keyType) {
+        callBack(event)
+    }
+}
+
