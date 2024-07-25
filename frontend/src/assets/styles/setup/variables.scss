@@ -11,11 +11,14 @@ $themes: (
 );
 
 $accent-clr: #80C4E9;
+$primary-success-clr: var(--sl-color-success-500);
 
 
 // ** LAYOUT**
 // Layout Breakpoints
+$break-mobile: 400px;
 $break-narrow: 800px; 
+$break-medium: 1000px;
 
 // ** SIZES **
 

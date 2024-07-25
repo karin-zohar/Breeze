@@ -52,6 +52,7 @@ a {
     text-decoration: none;
     color: inherit;
     transition: 0.5s;
+
     &:hover {
         color: $accent-clr;
     }
@@ -67,6 +68,26 @@ a {
   @include color-theme-basic(dark);
 }
 
+
 main {
     padding: 18px;
+    width: auto;
+
+    @include for-wide-layout {
+        max-width: 1200px;
+    }
+
+    @include for-medium-layout {
+        max-width: 550px;
+    }
+
+    @include for-narrow-layout {
+        max-width: 500px;
+    }
+
+    @include for-mobile-layout {
+        min-width: 300px;
+    }
+
+
 }

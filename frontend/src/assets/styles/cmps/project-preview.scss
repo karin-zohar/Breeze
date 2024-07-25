@@ -1,11 +1,11 @@
 .project-preview {
+    background-color: yellow;
     display: grid;
-    width: 100%;
 
     .project-progress {
         .progress-text {
             &.completed {
-                color: green; //temp
+                color: $primary-success-clr;
             }
         }
 

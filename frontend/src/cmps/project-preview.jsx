@@ -15,7 +15,7 @@ export function ProjectPreview({ project, projectActions }) {
 
     return (
         <article className="project-preview">
-            <ul>
+            <ul className="field-widgets">
                 {projectFields.map((projectField, idx) => {
                     return (
                         <li key={idx}>

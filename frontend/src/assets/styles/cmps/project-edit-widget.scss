@@ -1,5 +1,6 @@
 .widget {
-    width: 100%;
+    background-color: lightblue;
+    width: max-content;
     margin-block-end: 1em;
     position: relative;
     display: grid;
@@ -10,8 +11,9 @@
             border: 1px solid gray;
         }
     }
-
-    &>* {
+    
+    .label, textarea {
+        background-color: aqua;
         width: 100%;
         grid-area: field;    
     }
@@ -48,22 +50,10 @@
     }
 
     &[data-field="description"] {
-
-        .label,
-        textarea {
-            height: 8em;
-        }
-
+        text-wrap: wrap;
+        overflow-x: hidden;
         .label {
             white-space: pre;
-        }
-    }
-
-    &[data-field="title"] {
-
-        .label,
-        textarea {
-            height: 2em;
         }
     }
 }
