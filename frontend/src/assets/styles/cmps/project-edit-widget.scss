@@ -1,5 +1,5 @@
 .widget {
-    background-color: pink;
+    margin: 0;
     position: relative;
     display: grid;
     grid-template-areas: "field";
@@ -28,6 +28,7 @@
             border: 1px solid transparent;
             border-radius: 4px;
             padding: 1px 6px;
+            font-weight: inherit;
         }
     }
 
@@ -51,5 +52,9 @@
 
     &[data-field="description"] {
         text-wrap: wrap;
+    }
+    
+    &[data-field="title"] {
+        font-weight: 700;
     }
 }

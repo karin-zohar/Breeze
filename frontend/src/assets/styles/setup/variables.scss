@@ -14,7 +14,7 @@ $accent-clr: #80C4E9;
 $primary-success-clr: var(--sl-color-success-500);
 
 
-// ** LAYOUT**
+// ** LAYOUT **
 // Layout Breakpoints
 $break-mobile: 450px;
 $break-narrow: 800px; 
@@ -30,3 +30,5 @@ $app-header-height: 100px;
 // AppMenu: 
 $sidebar-width: 300px; // in normal layout
 
+// ** BOX SHADOW ** 
+$shadow: var(--sl-shadow-x-large)

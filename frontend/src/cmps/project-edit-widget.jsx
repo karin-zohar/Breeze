@@ -28,17 +28,22 @@ export function ProjectEditWidget({ currProject, setCurrProject, update, field }
     }
 
     const exitEditMode = () => {
-        setIsActive(false)
+        window.removeEventListener('keydown', handleEnter)
         inputRef.current.blur()
+        setIsActive(false)
     }
 
     const enterEditMode = () => {
         if (inputRef.current) {
             setIsActive(true)
             inputRef.current.focus()
-            window.addEventListener('keydown', (event) => {
-                utilService.handleKeydown(event, 'Enter', exitEditMode)
-            })
+            window.addEventListener('keydown', handleEnter)
+        }
+    }
+
+    const handleEnter = (event) => {
+        if (event.key === 'Enter') {
+            exitEditMode()
         }
     }
 
@@ -51,9 +56,9 @@ export function ProjectEditWidget({ currProject, setCurrProject, update, field }
 
         >
             {/* <SlTooltip content={`Edit ${field}`} placement="top"> */}
-                <div className="label" title={field}>
-                    <span>{fieldValue}</span>
-                </div>
+            <div className="label" title={field}>
+                <span>{fieldValue}</span>
+            </div>
             {/* </SlTooltip> */}
 
             <textarea

@@ -1,7 +1,9 @@
 .project-preview {
     display: grid;
     grid-template-rows: 1fr, 1fr;
-    
+    margin-block-end: 1rem;
+    border-radius: 1px;
+
     .field-widgets, .field-widgets li, .widget {
         width: 100%;
     }

@@ -35,12 +35,11 @@ export default function ProjectIndex() {
 
     return (
         <section className="project-index">
-            <h2>project index</h2>
             <button
                 className="add-project"
                 onClick={projectActions.add}
             >
-                Add project
+                New Project
             </button>
             <ProjectList projects={projects} projectActions={projectActions}  />
         </section>

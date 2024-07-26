@@ -53,6 +53,7 @@ function getPercentage(part, total) {
 // Event handling
 
 function handleKeydown(event, keyType, callBack) {
+    console.log('event.key: ', event.key)
     if (event.key === keyType) {
         callBack(event)
     }
