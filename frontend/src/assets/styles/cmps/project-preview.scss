@@ -1,23 +1,18 @@
 .project-preview {
-    background-color: yellow;
-    border: 3px solid red;
     display: grid;
     grid-template-rows: 1fr, 1fr;
-
+    
     .field-widgets, .field-widgets li, .widget {
-        width: inherit;
-
+        width: 100%;
     }
 
     .field-widgets {
         grid-row: 1;
-        background-color: lightseagreen;
     }
 
     .project-progress {
         grid-row: 2;
 
-        background-color: pink;
         .progress-text {
             &.completed {
                 color: $primary-success-clr;

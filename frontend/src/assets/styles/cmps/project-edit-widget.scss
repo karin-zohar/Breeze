@@ -1,6 +1,5 @@
 .widget {
-    background-color: lightblue;
-    margin-block-end: 1em;
+    background-color: pink;
     position: relative;
     display: grid;
     grid-template-areas: "field";
@@ -12,20 +11,20 @@
     }
     
     .label, textarea {
-        background-color: aqua;
         grid-area: field;    
     }
 
     .label {
+        width: 100%;
         display: block;
         visibility: visible;
         z-index: 3;
-        width: inherit;
-        overflow: clip;
-        text-wrap: wrap;
         
-
-        span {
+        
+        span , textarea , textarea::placeholder {
+            display: inline-block;
+            overflow: hidden;
+            text-wrap: wrap;
             border: 1px solid transparent;
             border-radius: 4px;
             padding: 1px 6px;
@@ -37,7 +36,7 @@
         @include reset-textarea;
 
         &:focus {
-            border: 2px solid $accent-clr;
+            border: 1px solid $accent-clr;
             border-radius: 4px;
         }
     }
@@ -52,9 +51,5 @@
 
     &[data-field="description"] {
         text-wrap: wrap;
-        overflow-x: hidden;
-        .label {
-            white-space: pre;
-        }
     }
 }

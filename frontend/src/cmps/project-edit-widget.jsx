@@ -50,11 +50,11 @@ export function ProjectEditWidget({ currProject, setCurrProject, update, field }
             onDoubleClick={enterEditMode}
 
         >
-            <SlTooltip content={`Edit ${field}`} placement="top">
+            {/* <SlTooltip content={`Edit ${field}`} placement="top"> */}
                 <div className="label" title={field}>
                     <span>{fieldValue}</span>
                 </div>
-            </SlTooltip>
+            {/* </SlTooltip> */}
 
             <textarea
                 defaultValue={fieldValue}
