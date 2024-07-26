@@ -15,7 +15,7 @@
     }
 
     .label {
-        width: 100%;
+        // width: 100%;
         display: block;
         visibility: visible;
         z-index: 3;
@@ -57,4 +57,5 @@
     &[data-field="title"] {
         font-weight: 700;
     }
+
 }
