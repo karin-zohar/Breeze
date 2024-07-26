@@ -1,6 +1,5 @@
 .widget {
     background-color: lightblue;
-    width: max-content;
     margin-block-end: 1em;
     position: relative;
     display: grid;
@@ -14,7 +13,6 @@
     
     .label, textarea {
         background-color: aqua;
-        width: 100%;
         grid-area: field;    
     }
 
@@ -22,7 +20,10 @@
         display: block;
         visibility: visible;
         z-index: 3;
-        width: fit-content;
+        width: inherit;
+        overflow: clip;
+        text-wrap: wrap;
+        
 
         span {
             border: 1px solid transparent;

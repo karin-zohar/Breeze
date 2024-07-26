@@ -73,21 +73,30 @@ main {
     padding: 18px;
     width: auto;
 
-    @include for-wide-layout {
-        max-width: 1200px;
-    }
-
-    @include for-medium-layout {
-        max-width: 550px;
+    @include for-normal-layout {
+        max-width: calc(100vw - $sidebar-width - ($layout-padding * 2))
     }
 
     @include for-narrow-layout {
-        max-width: 500px;
+        min-width: 300px;
+        max-width: calc(100vw - ($layout-padding * 2))
     }
 
-    @include for-mobile-layout {
-        min-width: 300px;
-    }
+    // @include for-wide-layout {
+    //     max-width: 700px;
+    // }
+
+    // @include for-medium-layout {
+    //     max-width: 550px;
+    // }
+
+    // @include for-narrow-layout {
+    //     max-width: 500px;
+    // }
+
+    // @include for-mobile-layout {
+    //     min-width: 300px;
+    // }
 
 
 }
