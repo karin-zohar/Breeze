@@ -28,9 +28,11 @@ export function ProjectEditWidget({ currProject, setCurrProject, update, field }
     }
 
     const exitEditMode = () => {
-        window.removeEventListener('keydown', handleEnter)
-        inputRef.current.blur()
-        setIsActive(false)
+        if (inputRef.current) {
+            window.removeEventListener('keydown', handleEnter)
+            inputRef.current.blur()
+            setIsActive(false)
+        }
     }
 
     const enterEditMode = () => {
@@ -52,7 +54,7 @@ export function ProjectEditWidget({ currProject, setCurrProject, update, field }
         <div
             className={widgetClasses.join(' ')}
             data-field={field}
-            onDoubleClick={enterEditMode}
+            onClick={enterEditMode}
 
         >
             <SlTooltip className="tooltip" content={`Edit ${field}`} placement="top">
